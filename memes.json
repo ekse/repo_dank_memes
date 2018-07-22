@@ -1,0 +1,12 @@
+{
+    "memes": [
+        {
+            "name": "nyan cat",
+            "year": 2011,
+            "url": "http://www.nyan.cat/",
+            "files": [
+                "data/nyancat.txt"
+            ]
+        }
+    ]
+}
