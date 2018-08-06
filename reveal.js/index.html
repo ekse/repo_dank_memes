@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Git</h1>
+					<h3>Lunch and Learn</h3>
+				</section>
+
+				<section>
+					<h2>Faire un commit</h2>
+					<pre>git clone https://github.com/ekse/rdm
+
+git status
+git add
+git commit
+git push</pre>
+				</section>
+
+				<section>
+					<h2>Outils</h2>
+					<ul>
+						<li>Sourcetree (Windows, OSX)</li>
+						<li>Intégration dans IDE: Visual Studio, VS Code, Jetbrains, XCode</li>
+						<li>Shell prompt</li>
+						<ul>
+						<li>https://github.com/magicmonty/bash-git-prompt</li>
+						<li>fish</li>
+						<li>Git bash (Windows)</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Shortcuts</h2>
+					<pre>
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status</pre>
+				</section>
+
+				<section>
+				<section>
+					<h2>Branches</h2>
+					<p>Un branche est l'équivalent d'un bookmark vers un commit. Créer une branche ne coûte rien.</p>
+					<pre>
+# Lister les branches
+git branch
+git branch -a
+git branch -av
+
+# Créer une branche
+git checkout -b |branch_name|
+
+# Renommer une branche
+git branch -m |new_name|
+
+# Changer de branche
+git checkout |branch_name|
+
+# Effacer un branche
+git branch -D |branch_name|</pre>
+				</section>
+
+				<section>
+					<h2>Branches</h2>
+					<p>Toujours travailler sur une branche, ne pas commiter directement sur master. Github et Bitbucket
+						peuvent être configurés pour l'interdire.
+					</p>
+				</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Historique</h2>
+						<pre>
+git log
+git log |filename|
+git log --stat
+
+git show |commit|
+
+git blame |filename|</pre>
+					</section>
+					
+					<section>
+						<h2>Historique</h2>
+						<pre>
+git grep -n |expr|
+
+# Cherche dans le contenu sur le git
+# Cherche à partir du dossier courant
+# Souvent plus efficace/pertinent que grep directement</pre>
+					</section>
+
+					<section>
+						<h2>Historique</h2>
+						<pre>
+# Checkout  d’un commit spécifique
+git checkout |commit| 
+git checkout -b |branch| |commit|
+
+# Detached HEAD" signifie un checkout qui n'est pas sur 
+# une branche.</pre>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Changements</h2>
+						<pre>
+git add |filename|
+git add -u
+git reset |filename|
+git reset
+git rm |filename|</pre>
+						<ul>
+							<li>Tracked: fichier qui fait partie du repository</li>
+							<li>Staged: addition prévue lors du prochain commit.</li>
+						</ul>
+					</section>
+					<section>
+							<h2>Changements</h2>
+							<pre>
+git diff
+git diff --cached
+git diff |branch|
+git diff |commit|
+git difftool</pre>
+						</section>
+						<section>
+							<h2>Changements</h2>
+							<p>Sélection de hunks.</p>
+							<pre>git add -p |filename|</pre>
+							<p>Permet de commiter seulement une partie des modifications à un fichier.</p>
+						</section>
+						<section>
+								<h2>Changements</h2>
+								<p>.gitignore</p>
+								<pre>builds/
+*.bak</pre>
+							</section>
+							<section>
+								<h2>Changements</h2>
+								<p>Sauvegarde temporaire avec git stash</p>
+								<pre>git stash
+git stash save |name|
+git stash -u										
+git stash list
+git stash apply
+git stash pop</pre>
+							</section>
+							<section>
+								<h2>Changements</h2>
+								<p>Revenir au départ</p>
+								<pre>git checkout |filename|
+git reset --hard
+
+git clean -f</pre>
+							</section>
+						</section>
+
+					<section>
+							<section>
+								<h2>Merges</h2>
+								<img src="images/merge1.png"/>
+							</section>
+							<section>
+								<h2>Merges</h2>
+								<p>Merge</p>
+								<img src="images/merge2.png"/>
+							</section>
+							<section>
+									<h2>Merges</h2>
+									<p>Merge</p>
+									<img src="images/merge3.png"/>
+								</section>
+							<section>
+									<h2>Merges</h2>
+									<p>Rebase</p>
+									<img src="images/rebase1.png"/>
+								</section>
+							<section>
+									<h2>Merges</h2>
+									<p>Squash</p>
+									<p>Remplace les commits de la branche par seul nouveau commit</p>
+									<img src="images/rebase1.png"/>
+								</section>									
+					</section>
+
+
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
