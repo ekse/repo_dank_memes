@@ -14,6 +14,11 @@
             "files": [
                 "data/doge.jpg"
             ]
-        } 
+        },
+        {
+            "name": "rickroll",
+            "year": 1987,
+            "phone number": "778-330-2389"
+        }  
     ]
 }
