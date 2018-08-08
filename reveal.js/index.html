@@ -29,17 +29,27 @@
 				<section>
 					<h1>Git</h1>
 					<h3>Lunch and Learn</h3>
+					<img src="images/fire.jpg" height=300/>
 				</section>
 
 				<section>
-					<h2>Faire un commit</h2>
-					<pre>git clone https://github.com/ekse/rdm
-
+					<h2>Git = distribué</h2>
+					<p>Chaque utilisateur a sa propre version d'un repository. Un
+						remote fait référence à repository distant.</p>
+					<p> Les commits sont appliqués localement, push et pull servent à 
+						mettre à jour les repositories entre eux.
+					</p>
+				</section>
+				
+				<section>
+						<h2>Faire un commit</h2>
+						<pre>git clone https://github.com/ekse/rdm
+	
 git status
 git add
 git commit
 git push</pre>
-				</section>
+					</section>
 
 				<section>
 					<h2>Outils</h2>
@@ -67,7 +77,9 @@ git config --global alias.st status</pre>
 				<section>
 				<section>
 					<h2>Branches</h2>
-					<p>Un branche est l'équivalent d'un bookmark vers un commit. Créer une branche ne coûte rien.</p>
+					<p>Un branche est l'équivalent d'un bookmark vers un commit. Créer une branche ne coûte rien.
+						HEAD correspond au dernier commit d'une branche.
+					</p>
 					<pre>
 # Lister les branches
 git branch
@@ -125,7 +137,7 @@ git grep -n |expr|
 git checkout |commit| 
 git checkout -b |branch| |commit|
 
-# Detached HEAD" signifie un checkout qui n'est pas sur 
+# "Detached HEAD" signifie un checkout qui n'est pas sur 
 # une branche.</pre>
 					</section>
 				</section>
@@ -201,6 +213,11 @@ git clean -f</pre>
 									<p>Merge</p>
 									<img src="images/merge3.png"/>
 								</section>
+								<section>
+										<h2>Merges</h2>
+										<p>Fast-forward merge</p>
+										<img src="images/fast-forward.gif"/>
+									</section>
 							<section>
 									<h2>Merges</h2>
 									<p>Rebase</p>
@@ -209,14 +226,66 @@ git clean -f</pre>
 							<section>
 									<h2>Merges</h2>
 									<p>Squash</p>
-									<p>Remplace les commits de la branche par seul nouveau commit</p>
+									<p>Remplace les commits de la branche par un seul nouveau commit.</p>
 									<img src="images/rebase1.png"/>
 								</section>									
 					</section>
 
+					<section>
+						<section>
+							<h2>Modification de l'historique</h2>
+							<p>Utile sur les branches de travail</p>
+							<pre>
+# Réinitialiser à un commit spécifique								
+git reset --hard |commit|
 
+# Réinitialiser une branche locale à partir d'une branche
+# remote
+git reset --hard |origin/branch|
+							</pre>
+						</section>
+						<section>
+							<h2>Modification de l'historique</h2>
+							<pre># Modifier le dernier commit
+git commit --amend
 
+# Rebase interactif
+git rebase -i HEAD~2
+							</pre>
+						</section>
+						<section>
+							<h2>Modification de l'historique</h2>
+							<p>cherry-pick permet d'appliquer un commit spécifique.</p>
+							<pre>git cherry-pick |commit|</pre>
+						</section>
+						<section>
+							<h2>Modification de l'historique</h2>
+							<p>Si la branche locale a divergée de la branche remote.
+							</p>
+							<pre>git push --force</pre>
+							<p>Ne jamais faire sur une branche publique. Utiliser git revert pour annuler
+							un commit.
+							</p>
+							<pre>git revert |commit|
+# Revert d'une branche
+git revert -m 1 |commit|</pre>
+						</section>
+						<section>
+							<h2>Modification de l'historique</h2>
+							<p>Appliquer les modifications d'une branche sans garder les commits.</p>
+							<pre>git merge --no-commit --squash |branch|
+git reset</pre>
+						</section>
+				</section>
 
+				<section>
+					<h2>Ressources</h2>
+					<ul>
+						<li><img src="images/pro_git.jpg" height=400/></li>
+						<li>git help |command|</li>
+						<li>https://github.com/git-tips</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
