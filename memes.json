@@ -7,6 +7,12 @@
             "files": [
                 "data/nyancat.txt"
             ]
+        },
+        {
+            "name": "doge",
+            "files": [
+                "data/doge.jpg"
+            ]
         }
     ]
 }
