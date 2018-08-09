@@ -7,6 +7,21 @@
             "files": [
                 "data/nyancat.txt"
             ]
-        }
+        },
+        {
+            "name": "doge",
+            "year": 2013,
+            "files": [
+                "data/doge.jpg"
+            ]
+        },
+        {
+            "name": "rickroll",
+            "year": 1987,
+            "phone number": "778-330-2389"
+        },
+        {
+            "name": "grumpy cat"
+        }  
     ]
 }
